@@ -1,13 +1,8 @@
-import Navbar from "../Navbar/navbar";
-import Footer from "../Footer/footer";
+import React from 'react'
 
 const Product = () => {
   return (
-    <div>
-      <Navbar />
-      Product
-      <Footer />
-    </div>
+    <div>Product</div>
   )
 }
 

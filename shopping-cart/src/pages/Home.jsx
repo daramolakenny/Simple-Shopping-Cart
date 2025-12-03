@@ -1,16 +1,14 @@
 import Navlinks from '../component/Navlinks';
-import Hero from '../component/Hero';
 import Features from '../component/Features';
-import Testimony from '../component/Testimony';
+import Contact from './Contact';
 import Footer from '../component/Footer'; 
 
 const Home = () => {
   return (
-    <div>
+    <div className=''>
       <Navlinks />
-      <Hero />
       <Features />
-      <Testimony />
+      <Contact />
       <Footer /> 
     </div>
   )

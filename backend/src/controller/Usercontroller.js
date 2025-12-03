@@ -1,7 +1,16 @@
 import collectionModel from "../db/collectionsSche.js";
+import { validateProduct } from "../utils/Validaterule.js";
 
 export const createItem = async (req, res) => {
     try {
+        const { error} = validateProduct(req.body);
+        if(error){
+            return res.status(400).json({
+                message : "Validation error",
+                details: error.details,
+            })
+        }
+
         const {productName, category, price, description, available, productImage} =
         req.body;
         const newItem = new collectionModel({
@@ -23,12 +32,22 @@ export const createItem = async (req, res) => {
 
 export const getItems = async (req, res) => {
     try {
-        const items = await collectionModel.find();
-        console.log(items);
-        res.sendStatus(200).json({message: "Items fetched successfully", items: items});
+        const {filter, value} = req.query;
+        let items;
+        if(!filter && !value){
+            items = await collectionModel.find();
+        } else if(filter && value) {
+            items = await collectionModel.find(
+                { [filter]: { $regex: value, $options: "i" } }
+            );
+        }
+        res.status(200).json({
+            message: "Items fetched successfully!",
+            items,
+        })
     } catch (error) {
         console.log("error", error);
-        res.sendStatus(500).json({message: "Internal server error" });
+        res.status(500).json({message: "Internal server error" });
     }
 };
 

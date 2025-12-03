@@ -1,8 +1,107 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Navlinks = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+ const mobileToggle = () => setMobileOpen(!mobileOpen);
+
+
   return (
-    <div>Navlinks</div>
+    <div className='w-full'>
+      <div className='flex justify-around shadow-2xl p-4'>
+        <div className='px-4'>
+          <Link to={'/'}>
+            <h1 className='text-2xl'>Shop<span className='underline text-red-400'>ty</span></h1>
+          </Link>
+        </div>
+
+        <ul
+          className='hidden md:flex justify-around text-[20px]'
+        >
+          <li 
+            className='cursor-pointer hover:text-red-400 px-4'
+          >
+            <Link to={'/'}>
+              Home
+            </Link>
+          </li>
+          <li 
+            className='cursor-pointer hover:text-red-400 px-4'
+          >
+            <Link to={'/product'}>
+              Product
+            </Link>
+          </li>
+          <li 
+            className='cursor-pointer hover:text-red-400 px-4'
+          >
+            <Link to={'/cart'}>
+              Cart
+            </Link>
+          </li>
+        </ul>
+
+        <div className='hidden md:block bg-violet-500 px-4 rounded-sm text-white'>
+          <Link to={'/sign_in'}>
+            <h2 className='text-[20px]'>Sign In</h2>
+          </Link>
+        </div>
+
+        <div className='md:hidden mt-2 ml-auto'>
+          <button
+            onClick={mobileToggle}
+            aria-label='toggle menu'
+            aria-expanded={setMobileOpen}
+          >
+            {mobileOpen ? (
+              <svg className="w-6 h-6 ml-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      l         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {mobileOpen && (
+        <div className='block md:hidden bg-slate-50 leading-loose shadow-2xs text-[20px]'>
+          <ul
+            className='text-emerald-950 px-4 leading-loose '
+          >
+            <li 
+              className='cursor-pointer hover:text-violet-500'
+            >
+              <Link to={'/'}>
+                Home
+              </Link>
+            </li>
+            <li 
+              className='cursor-pointer hover:text-violet-500'
+            >
+              <Link to={'/product'}>
+                Product
+              </Link>
+            </li>
+            <li 
+              className='cursor-pointer hover:text-violet-500'
+            >
+              <Link to={'/cart'}>
+                Cart
+              </Link>
+            </li>
+          </ul>
+          <div className='bg-violet-500 text-center mx-2 rounded-2xl'>
+            <Link to={'/sign_in'}>
+              <button className='px-4 py-1 rounded-2xl text-white'>Sign In</button>
+            </Link>
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
 

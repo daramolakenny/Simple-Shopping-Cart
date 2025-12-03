@@ -12,8 +12,11 @@ const colectionItemSchema = mongoose.Schema({
         type: Number,
         require: true,
     },
-    description : {
-        type: String
+    increment: {
+        type: Number,
+    },
+    decrement : {
+        type: Number,
     },
     available : {
         type: Boolean
@@ -22,5 +25,6 @@ const colectionItemSchema = mongoose.Schema({
         type : String
     }
 });
- const collectionModel = mongoose.model("Collection", colectionItemSchema);
- export default collectionModel;
+
+const collectionModel = mongoose.model("Collection", colectionItemSchema);
+export default collectionModel;
