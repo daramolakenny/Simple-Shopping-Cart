@@ -1,8 +1,11 @@
 import React from 'react'
+// import Adult from '../component/Adult'
 
 const Product = () => {
   return (
-    <div>Product</div>
+    <div className='bg-blue-200'>
+      {/* <Adult /> */}
+    </div>
   )
 }
 

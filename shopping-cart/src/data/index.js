@@ -1,3 +1,5 @@
+import Bag1 from "../assets/img/Bag1.jpg";
+
 export const navlinks = [
     {
         id: 0,
@@ -15,10 +17,20 @@ export const navlinks = [
         url: "/cart"
     }
 ]
-{/* <Route path='/' element={<Home />} />
-          <Route path='/product' element={<Product />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/logout' element={<Logout />} />
-          <Route path='/singleproduct' element={<SingleProduct />} /> */}
+
+export const products = [
+    {
+        id: 0,
+        productName: "Bag",
+        image: Bag1,
+        price: "$100",
+        availability: true,
+    },
+    {
+        id: 2,
+        productName: "Bag",
+        image: Bag1,
+        price: "$100",
+        availability: true,
+    }
+]

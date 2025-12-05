@@ -2,6 +2,8 @@ import Navlinks from '../component/Navlinks';
 import Features from '../component/Features';
 import Contact from './Contact';
 import Footer from '../component/Footer'; 
+import { products } from '../data';
+import Product from './Product';
 
 const Home = () => {
   return (

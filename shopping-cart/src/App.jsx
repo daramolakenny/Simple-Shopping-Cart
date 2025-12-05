@@ -16,7 +16,7 @@ import Sign_in from './pages/Sign_in';
 
 function App() {
   return (
-    <div>
+    <div className='w-full'>
       <ErrorBoundary FallbackComponent={Errorflag} onError={(error, infor) => {
         // infor = "Something went wrong";
         console.error("Logged error:", error, infor);

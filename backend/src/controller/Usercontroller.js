@@ -32,7 +32,13 @@ export const createItem = async (req, res) => {
 
 export const getItems = async (req, res) => {
     try {
+        // query logic
         const {filter, value} = req.query;
+        // session logic
+        console.log(req.session);
+        console.log(req.session.id);
+        req.session.visited = true;
+        res.cookie("hello", "world", { maxAge: 60000 * 60 });
         let items;
         if(!filter && !value){
             items = await collectionModel.find();
